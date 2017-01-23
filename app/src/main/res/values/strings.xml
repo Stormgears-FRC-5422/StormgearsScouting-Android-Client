@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">StormgearsScouting</string>
+
+    <string name="match_scouting_activity_name">Match Scouting</string>
+    <string name="pit_scouting_activity_name">Pit Scouting</string>
+
+    <string-array name="match_types">
+        <item>Qualification</item>
+        <item>Playoff</item>
+    </string-array>
+
+    <string-array name="auto_gear_strategies">
+        <item>Attempted to Place Gear</item>
+        <item>Placed Gear</item>
+        <item>Did not Attempt to Place Gear</item>
+    </string-array>
+
+    <string-array name="match_strategies">
+        <item>Gears Only</item>
+        <item>Fuel Only</item>
+        <item>Both Gears and Fuel</item>
+        <item>Defense</item>
+        <item>Sits Still for the Match</item>
+    </string-array>
+</resources>
