@@ -6,7 +6,7 @@ package org.stormgears.stormgearsscoutingv20.data;
 
 public class Data
 {
-	public String   password = "***REMOVED***";
+	public String   password = "XXXXXXXXXXX";
 	public String   eventCode = "nhred2017";
 	public String   scoutType = "match";
 	public int      teamNumber = 5422;

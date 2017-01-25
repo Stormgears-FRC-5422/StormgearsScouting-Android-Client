@@ -57,7 +57,7 @@ public class MatchScouting extends AppCompatActivity
 
 		Scoutingdata.Event.Builder scoutingData = Scoutingdata.Event.newBuilder();
 
-		scoutingData.setPassword("***REMOVED***");
+		scoutingData.setPassword("XXXXXXXXXX");
 		scoutingData.setEventCode("nhwin2017");
 		scoutingData.setScoutType("match");
 		scoutingData.setTeamNumber(5422);
