@@ -14,9 +14,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/activity_horizontal_margin">
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin">
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
@@ -115,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:entries="@array/auto_gear_strategies"
                 android:layout_marginBottom="@dimen/spacer_title"
-                android:id="@+id/spn_m_auto_gear"/>
+                android:id="@+id/spn_m_auto_gear_strategy"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -133,7 +134,7 @@
                     android:layout_width="@dimen/number_picker_side_width"
                     android:layout_height="@dimen/number_picker_side_width"
                     android:orientation="horizontal"
-                    android:id="@+id/np_auto_low_shots"
+                    android:id="@+id/np_m_auto_low_shots"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
@@ -154,10 +155,29 @@
                     android:layout_width="@dimen/number_picker_side_width"
                     android:layout_height="@dimen/number_picker_side_width"
                     android:orientation="horizontal"
-                    android:id="@+id/np_auto_high_shots"
+                    android:id="@+id/np_m_auto_high_shots"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
+
+            <CheckBox
+                android:text="Robot Crossed Base Line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/chk_m_auto_baseline"/>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/lbl_m_tele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teleoperated Period"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"/>
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
