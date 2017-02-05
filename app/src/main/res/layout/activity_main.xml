@@ -7,7 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="org.stormgears.stormgearsscoutingv20.MainActivity">
+    tools:context="org.stormgears.stormgearsscoutingv20.activity.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,7 +47,8 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Pit Scouting"/>
+                android:text="Pit Scouting"
+                android:onClick="onClickPitScouting"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,10 +1,6 @@
 package org.stormgears.stormgearsscoutingv20.sms;
 
-import android.app.PendingIntent;
-import android.content.Context;
 import android.telephony.SmsManager;
-
-import org.stormgears.stormgearsscoutingv20.MatchScouting;
 
 import java.util.ArrayList;
 

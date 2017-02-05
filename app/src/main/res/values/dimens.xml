@@ -15,4 +15,7 @@
     <!-- Number Picker side length -->
     <dimen name="number_picker_side_width">64dp</dimen>
 
+    <!-- Comment box height -->
+    <dimen name="comment_box_height">128dp</dimen>
+
 </resources>

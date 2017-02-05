@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="HTTPS"
+        android:title="Protocol to Use"
+        android:entries="@array/protocols"
+        android:entryValues="@array/protocols"
+        android:key="org.stormgears.stormgearsscoutingv20.preferences.protocolToUse"
+        android:summary="Use SMS when no internet access is available."/>
+    <EditTextPreference
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Event Code"
+        android:key="org.stormgears.stormgearsscoutingv20.preferences.eventCode"
+        android:hint="Event code given by scouting instructor."/>
+    <EditTextPreference
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Password"
+        android:key="org.stormgears.stormgearsscoutingv20.preferences.password"
+        android:hint="Password given by scouting instructor."/>
+    <EditTextPreference
+        android:title="Server Address"
+        android:singleLine="true"
+        android:summary="The web address that scouting data should be sent to when using HTTPS protocol"
+        android:hint="https://....."
+        android:key="org.stormgears.stormgearsscoutingv20.preferences.serverUrl"/>
+    <EditTextPreference
+        android:title="SMS Phone Number"
+        android:singleLine="true"
+        android:summary="The phone number that scouting data SMSs should be sent to when using SMS protocol"
+        android:hint="(XXX) XXX XXXX"
+        android:key="org.stormgears.stormgearsscoutingv20.preferences.phoneNumber"/>
+</PreferenceScreen>

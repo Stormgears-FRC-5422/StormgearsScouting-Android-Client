@@ -3,6 +3,7 @@
 
     <string name="match_scouting_activity_name">Match Scouting</string>
     <string name="pit_scouting_activity_name">Pit Scouting</string>
+    <string name="settings_activity_name">Settings</string>
 
     <string-array name="match_types">
         <item>Qualification</item>
@@ -15,11 +16,37 @@
         <item>Did not Attempt to Place Gear</item>
     </string-array>
 
+    <string-array name="tele_shots_missed">
+        <item>None</item>
+        <item>Some</item>
+        <item>Most</item>
+        <item>All</item>
+    </string-array>
+
+    <string-array name="tele_ball_retrieval_method">
+        <item>Does Not Shoot Balls</item>
+        <item>Balls Fall into Robot from Hopper</item>
+        <item>Robot Picks up Balls from Field Floor</item>
+        <item>Robot Does not Retrieve Additional Balls During Match</item>
+    </string-array>
+
+    <string-array name="tele_robot_climb_status">
+        <item>Attempted to Climb; Did not Reach Rope</item>
+        <item>Grappled onto Rope</item>
+        <item>Climbed Rope Half Way</item>
+        <item>Climbed Rope and Activated Touchpad</item>
+    </string-array>
+
     <string-array name="match_strategies">
         <item>Gears Only</item>
         <item>Fuel Only</item>
         <item>Both Gears and Fuel</item>
         <item>Defense</item>
         <item>Sits Still for the Match</item>
+    </string-array>
+
+    <string-array name="protocols">
+        <item>HTTPS</item>
+        <item>SMS</item>
     </string-array>
 </resources>
