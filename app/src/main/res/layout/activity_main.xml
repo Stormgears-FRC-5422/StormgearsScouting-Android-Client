@@ -7,7 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="org.stormgears.stormgearsscoutingv20.activity.MainActivity">
+    tools:context="org.stormgears.stormgearsscouting.activity.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"

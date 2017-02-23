@@ -5,6 +5,7 @@
 
     <!-- Button widths -->
     <dimen name="button_width">192dp</dimen>
+    <dimen name="small_button_width">96dp</dimen>
 
     <!-- Spacer on home screen -->
     <dimen name="spacer_height">64dp</dimen>

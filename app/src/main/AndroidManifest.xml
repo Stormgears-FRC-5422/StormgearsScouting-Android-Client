@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.stormgears.stormgearsscoutingv20">
+          package="org.stormgears.stormgearsscouting">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
@@ -24,15 +25,21 @@
             android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.PitScouting">
+        <activity
+            android:name=".activity.PitScouting"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.Settings"
             android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.stormgears.stormgearsscoutingv20.activity.MainActivity"/>
+                android:value="org.stormgears.stormgearsscouting.activity.MainActivity"/>
         </activity>
+        <service
+            android:name="com.tuenti.smsradar.SmsRadarService"
+            android:exported="false"
+            android:label="@string/app_name"/>
     </application>
-
 </manifest>

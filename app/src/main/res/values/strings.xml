@@ -5,6 +5,15 @@
     <string name="pit_scouting_activity_name">Pit Scouting</string>
     <string name="settings_activity_name">Settings</string>
 
+    <string name="no_password_set">No password has been set. Would you like to change it now, or continue with the default password?</string>
+    <string name="no_server_url_set">HTTPS will not work because the server URL has not been set. Please set it to continue.</string>
+    <string name="no_phone_number_set">SMS will not work because the phone number has not been set. Please set it to continue.</string>
+    <string name="data_sent_success">Data sent!</string>
+    <string name="data_received_success">Data received by server!</string>
+
+    <!-- Dialog titles -->
+    <string name="send_cached_title">Send Cached Data</string>
+
     <string-array name="match_types">
         <item>Qualification</item>
         <item>Playoff</item>

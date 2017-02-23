@@ -9,6 +9,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.stormgears.stormgearsscoutingv20.activity.PitScouting">
+    tools:context="org.stormgears.stormgearsscouting.activity.PitScouting">
 
 </RelativeLayout>

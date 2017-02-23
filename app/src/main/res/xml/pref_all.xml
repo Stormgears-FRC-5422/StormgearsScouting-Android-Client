@@ -6,30 +6,27 @@
         android:title="Protocol to Use"
         android:entries="@array/protocols"
         android:entryValues="@array/protocols"
-        android:key="org.stormgears.stormgearsscoutingv20.preferences.protocolToUse"
+        android:key="org.stormgears.stormgearsscouting.preferences.protocolToUse"
         android:summary="Use SMS when no internet access is available."/>
     <EditTextPreference
-        android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Event Code"
-        android:key="org.stormgears.stormgearsscoutingv20.preferences.eventCode"
-        android:hint="Event code given by scouting instructor."/>
+        android:key="org.stormgears.stormgearsscouting.preferences.eventCode"
+        android:summary="Event code given by scouting instructor."/>
     <EditTextPreference
-        android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Password"
-        android:key="org.stormgears.stormgearsscoutingv20.preferences.password"
-        android:hint="Password given by scouting instructor."/>
+        android:key="org.stormgears.stormgearsscouting.preferences.password"
+        android:summary="Password given by scouting instructor."/>
     <EditTextPreference
         android:title="Server Address"
         android:singleLine="true"
         android:summary="The web address that scouting data should be sent to when using HTTPS protocol"
         android:hint="https://....."
-        android:key="org.stormgears.stormgearsscoutingv20.preferences.serverUrl"/>
+        android:key="org.stormgears.stormgearsscouting.preferences.serverUrl"/>
     <EditTextPreference
         android:title="SMS Phone Number"
         android:singleLine="true"
         android:summary="The phone number that scouting data SMSs should be sent to when using SMS protocol"
-        android:hint="(XXX) XXX XXXX"
-        android:key="org.stormgears.stormgearsscoutingv20.preferences.phoneNumber"/>
+        android:key="org.stormgears.stormgearsscouting.preferences.phoneNumber"/>
 </PreferenceScreen>

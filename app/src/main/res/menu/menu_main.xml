@@ -3,6 +3,12 @@
       xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Settings"
-          android:id="@+id/item_settings"
+          android:id="@+id/main_item_settings"
           android:icon="@android:drawable/ic_menu_manage"/>
+
+    <item android:title="Send cached data..."
+          android:id="@+id/main_item_send_cached"/>
+
+    <item android:title="Clear cached data..."
+          android:id="@+id/main_item_clear_cached"/>
 </menu>

@@ -6,7 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="org.stormgears.stormgearsscoutingv20.activity.MatchScouting">
+    tools:context="org.stormgears.stormgearsscouting.activity.MatchScouting">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -220,7 +220,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="High Boiler: Shots Made"/>
+                    android:text="Gears Placed"/>
 
                 <NumberPicker
                     android:id="@+id/np_m_tele_gears_placed"
