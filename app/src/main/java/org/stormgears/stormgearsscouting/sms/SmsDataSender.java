@@ -5,7 +5,7 @@ import android.telephony.SmsManager;
 import java.util.ArrayList;
 
 /**
- * Created by michael on 1/24/17.
+ * Sends SMS data
  */
 
 public class SmsDataSender

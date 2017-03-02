@@ -282,9 +282,9 @@
             <Spinner
                 android:id="@+id/spn_m_tele_percent_shots_missed"
                 android:layout_width="match_parent"
-                android:entries="@array/tele_shots_missed"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacer_title"/>
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:entries="@array/tele_shots_missed"/>
 
             <TextView
                 android:id="@+id/lbl_m_tele_rotors_spinning"
@@ -310,9 +310,9 @@
             <Spinner
                 android:id="@+id/spn_m_tele_ball_retrieval_method"
                 android:layout_width="match_parent"
-                android:entries="@array/tele_ball_retrieval_method"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacer_title"/>
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:entries="@array/tele_ball_retrieval_method"/>
 
             <TextView
                 android:id="@+id/lbl_m_tele_robot_climb_status"
@@ -323,15 +323,15 @@
             <Spinner
                 android:id="@+id/spn_m_tele_robot_climb_status"
                 android:layout_width="match_parent"
-                android:entries="@array/tele_robot_climb_status"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacer_title"/>
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:entries="@array/tele_robot_climb_status"/>
 
             <CheckBox
                 android:id="@+id/chk_m_tele_airship_ready_for_takeoff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Robot Crossed Base Line"/>
+                android:text="Airship Ready for Takeoff"/>
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"

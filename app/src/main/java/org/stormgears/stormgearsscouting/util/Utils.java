@@ -15,6 +15,9 @@ public class Utils
 	public static SharedPreferences sharedPreferences;
 	public static Activity activity;
 
+	public static boolean dataSent = false;
+	public static boolean dataFailed = false;
+
 	public static void setSharedPreferences(SharedPreferences shared)
 	{
 		sharedPreferences = shared;

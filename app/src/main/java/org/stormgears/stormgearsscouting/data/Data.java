@@ -4,10 +4,18 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.tuenti.smsradar.Sms;
+import com.tuenti.smsradar.SmsListener;
+import com.tuenti.smsradar.SmsRadar;
+
+import org.stormgears.stormgearsscouting.R;
 import org.stormgears.stormgearsscouting.sms.SmsDataSender;
 import org.stormgears.stormgearsscouting.util.AppPrefs;
 import org.stormgears.stormgearsscouting.util.BaseX;
@@ -109,6 +117,7 @@ public class Data
 		scoutingData.setPassword(AppPrefs.password);
 		scoutingData.setEventCode(AppPrefs.eventCode);
 		scoutingData.setScoutType(scoutType);
+		scoutingData.setTeamNumber(teamNumber);
 		scoutingData.setMMatchNumber(m_matchNumber);
 		scoutingData.setMMatchType(m_matchType);
 		scoutingData.setMAllianceColor(m_allianceColor);
@@ -141,8 +150,7 @@ public class Data
 
 	public static String getAsString()
 	{
-		prepareProtobuf();
-		return new String(scoutingData.build().toByteArray());
+		return Base64.encodeToString(getBytes(), Base64.DEFAULT);
 	}
 
 	public static byte[] getBytes()
@@ -151,12 +159,14 @@ public class Data
 		return scoutingData.build().toByteArray();
 	}
 
-	public static void sendData(String protocol, String data, Activity activity)
+	public static void sendData(String protocol, String data, final Activity activity, final boolean fromLocal)
 	{
+		Utils.dataSent = false;
+		Utils.dataFailed = false;
+
+		final byte[] dataBytes = Base64.decode(data, Base64.DEFAULT);
 		if (protocol.equals(Constants.HTTPS_PROT))  // INTERNET permission is already given to app by Android
 		{
-			final String content = data;
-
 			// Start a new HTTP[S] POST request
 			new Thread(new Runnable()
 			{
@@ -165,6 +175,8 @@ public class Data
 				{
 					try
 					{
+						Looper.prepare();
+
 						System.out.println("Sending data... to: " + AppPrefs.serverUrl);
 
 						// Send data to server
@@ -175,46 +187,129 @@ public class Data
 						connection.setRequestProperty("Content-Type", "application/x-protobuf");
 
 						DataOutputStream dOutput = new DataOutputStream(connection.getOutputStream());
-						dOutput.writeBytes(content);
+						dOutput.write(dataBytes);
 						dOutput.close();
+
+						activity.runOnUiThread(new Runnable()
+						{
+							@Override
+							public void run()
+							{
+								Toast.makeText(activity, R.string.data_sent_success, Toast.LENGTH_SHORT).show();
+							}
+						});
 
 						// Handle response from server
 						BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 						String response = br.readLine();
 
-						System.out.println(response);
+						if (response.equals(Constants.CORRECT_SERV_RESPONSE))
+						{
+							activity.runOnUiThread(new Runnable()
+							{
+								@Override
+								public void run()
+								{
+									Toast.makeText(activity, R.string.data_received_success, Toast.LENGTH_LONG).show();
+								}
+							});
+
+							Utils.dataSent = true;
+						}
 					}
 					catch (Exception e)
 					{
 						Log.e("[Internet Error]", e.toString());
-						// TODO: Properly handle error in sending
+
+						Utils.dataSent = false;
+						Utils.dataFailed = true;
+
+						activity.runOnUiThread(new Runnable()
+						{
+							@Override
+							public void run()
+							{
+								String message = "Make sure your device has a working Internet connection," +
+										" and make sure you have typed the URL correctly in Settings.";
+
+								AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
+								dialog.setTitle("Error Connecting to Server");
+								dialog.setPositiveButton("Dismiss", new DialogInterface.OnClickListener()
+								{
+									public void onClick(DialogInterface dialog, int which)
+									{
+
+									}
+								});
+
+								if (!fromLocal)
+								{
+									message += " Feel free to save the data locally if needed.";
+
+									dialog.setNeutralButton("Save Data Locally", new DialogInterface.OnClickListener()
+									{
+
+										public void onClick(DialogInterface dialog, int which)
+										{
+											// If it got to this point, the data must be valid
+											// so no more checks needed
+											Data.saveDataLocally();
+										}
+									});
+								}
+
+								dialog.setMessage(message);
+								dialog.setIcon(android.R.drawable.ic_dialog_alert);
+								dialog.show();
+							}
+						});
 					}
 				}
 			}).start();
-		}
-		else if (AppPrefs.protocolToUse.equals(Constants.SMS_PROT))
+		} else if (AppPrefs.protocolToUse.equals(Constants.SMS_PROT))
 		{
 			if (AppPrefs.pSmsSend && AppPrefs.pSmsRead)
 			{
-				byte[] dataOut = data.getBytes();
 				BaseX baseX = new BaseX();
-				String encoded = baseX.encode(dataOut);
+				String encoded = baseX.encode(dataBytes);
 
 				SmsDataSender smsDataSender = new SmsDataSender(AppPrefs.phoneNumber);
 				smsDataSender.sendSms(Constants.MSG_PREFIX + encoded);
-			}
-			else
+
+				SmsRadar.initializeSmsRadarService(activity, new SmsListener()
+				{
+					@Override
+					public void onSmsSent(Sms sms)
+					{
+						if (sms.getAddress().equals(AppPrefs.phoneNumber))
+						{
+							Toast.makeText(activity, R.string.data_sent_success, Toast.LENGTH_SHORT).show();
+							Utils.dataSent = true;
+						}
+					}
+
+					@Override
+					public void onSmsReceived(Sms sms)
+					{
+						if (sms.getAddress().contains(AppPrefs.phoneNumber)
+								&& sms.getMsg().matches("([Tt]hank(s| you)|(([Gg]ot it|O[kK]|ok)(,? (thanks|thank you))?))(\\.|!{1,3}|)"))
+							Toast.makeText(activity, R.string.data_received_success, Toast.LENGTH_LONG).show();
+					}
+				});
+			} else
 			{
-				final Activity activityF = activity;
 				new AlertDialog.Builder(activity)
 						.setTitle("Error Sending SMS")
 						.setMessage("Please grant StormgearsScouting permission to send/receive SMSs in order to send" +
 								" data over the SMS protocol. Be sure to tap 'Send Form' again once the permission has" +
-								" been granted.")
-						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int which) {
+								" been granted. Also, make sure your device is connected to a cellular network and" +
+								" currently is on a plan with SMS enabled.")
+						.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog, int which)
+							{
 								// Ask for permission
-								ActivityCompat.requestPermissions(activityF,
+								ActivityCompat.requestPermissions(activity,
 										new String[]{Manifest.permission.SEND_SMS},
 										Constants.MY_PERMISSIONS_REQUEST_SMS_SEND);
 							}
@@ -228,12 +323,12 @@ public class Data
 	public static void saveDataLocally()
 	{
 		// Get a timestamp
-		SimpleDateFormat s = new SimpleDateFormat("MM/dd/YY HH:MM:SS");
+		SimpleDateFormat s = (SimpleDateFormat) SimpleDateFormat.getDateTimeInstance();
 		String format = s.format(new Date());
 
 		SharedPreferences.Editor editor = Utils.sharedPreferences.edit();
 		String saved = Utils.sharedPreferences.getString(Constants.SAVED_PROTOBUFS_KEY, "");
-		String toSave = format + "!!!" + getAsString() + "!---!";
+		String toSave = "Data entry on: " + format + "!!!" + getAsString() + "!---!";
 		editor.putString(Constants.SAVED_PROTOBUFS_KEY, saved + toSave);
 		editor.commit();
 	}

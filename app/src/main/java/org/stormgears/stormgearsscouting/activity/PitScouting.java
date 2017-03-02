@@ -25,42 +25,4 @@ public class PitScouting extends ScoutingActivity
 
 		Data.scoutType = Constants.PIT_SCOUT;
 	}
-
-//	@Override
-//	protected void onStart()
-//	{
-//		super.onStart();
-//
-//		populateFields();
-//	}
-//
-//	@Override
-//	protected void onResume()
-//	{
-//		super.onResume();
-//
-//		populateFields();
-//	}
-//
-//	@Override
-//	protected void onStop()
-//	{
-//		super.onStop();
-//
-//		populateData();
-//	}
-
-//	public void onClickSend(View view)
-//	{
-//		populateData();
-//
-//		ScoutingData.Event.Builder scoutingData = ScoutingData.Event.newBuilder();
-//
-//		byte[] dataOut = scoutingData.build().toByteArray();
-//		BaseX baseX = new BaseX();
-//		String encoded = baseX.encode(dataOut);
-//
-//		SmsDataSender smsDataSender = new SmsDataSender(AppPrefs.phoneNumber);
-//		smsDataSender.sendSms(Constants.MSG_PREFIX + encoded);
-//	}
 }

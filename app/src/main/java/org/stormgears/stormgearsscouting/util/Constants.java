@@ -1,7 +1,7 @@
 package org.stormgears.stormgearsscouting.util;
 
 /**
- * Created by michael on 1/12/17.
+ * Constants
  */
 
 public class Constants
@@ -20,6 +20,7 @@ public class Constants
 	public static String[] TELE_BALL_RETRIEVAL_METHOD;
 	public static String[] TELE_ROBOT_CLIMB_STATUS;
 	public static String[] MATCH_STRATEGIES;
+	public static String[] DRIVETRAIN_TYPES;
 
 	// SMS stuff
 	public static final String SMS_PROT = "SMS";
@@ -27,6 +28,7 @@ public class Constants
 
 	// HTTPS stuff
 	public static final String HTTPS_PROT = "HTTPS";
+	public static final String CORRECT_SERV_RESPONSE = "OK";
 
 	// Settings Stuff
 	public static final String PREFS_NAME = "org.stormgears.stormgearsscouting.scoutingPreferences";
@@ -41,8 +43,8 @@ public class Constants
 	public static final String DEFAULT_PASSWORD = "horses";
 	public static final String DEFAULT_EVENT_CODE = "xxxxx2017";
 	public static final String DEFAULT_PROTOCOL_TO_USE = HTTPS_PROT;
-	public static final String DEFAULT_SERVER_URL = "https://asdf.ghjkl.zxcvbnm.com";
-	public static final String DEFAULT_SMS_PHONE_NUMBER = "(000) 000 0000";
+	public static final String DEFAULT_SERVER_URL = "none";
+	public static final String DEFAULT_SMS_PHONE_NUMBER = "none";
 
 	// Permission request codes
 	public static final int MY_PERMISSIONS_REQUEST_INTERNET = 1111;

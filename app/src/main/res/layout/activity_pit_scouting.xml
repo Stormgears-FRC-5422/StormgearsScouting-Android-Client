@@ -1,14 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_pit_scouting"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.stormgears.stormgearsscouting.activity.PitScouting">
+    android:id="@+id/activity_match_scouting"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="org.stormgears.stormgearsscouting.activity.MatchScouting">
 
-</RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/lbl_p_general_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:text="General Information"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarSize="0dp">
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:columnCount="1"
+                    android:rowCount="2">
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/lbl_p_team_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team Number"/>
+
+                        <TextView
+                            android:id="@+id/lbl_p_team_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team Name"/>
+                    </TableRow>
+
+                    <TableRow>
+
+                        <EditText
+                            android:id="@+id/txt_p_team_number"
+                            android:layout_width="109dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:hint="#"
+                            android:inputType="number"/>
+
+                        <EditText
+                            android:id="@+id/txt_p_team_name"
+                            android:layout_width="218dp"
+                            android:layout_height="wrap_content"
+                            android:ems="10"/>
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/lbl_p_pit_scouting_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:text="Pit Scouting Details"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"/>
+
+            <TextView
+                android:id="@+id/lbl_p_drive_train_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Robot's Drive Train Type"/>
+
+            <Spinner
+                android:id="@+id/spn_p_drive_train_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:entries="@array/drive_train_types"/>
+
+            <TextView
+                android:id="@+id/lbl_p_match_strategy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Match Strategy (Auto and Teleop)"/>
+
+            <EditText
+                android:id="@+id/txt_p_match_strategy"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comment_box_height"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:inputType="textMultiLine"/>
+
+            <TextView
+                android:id="@+id/lbl_p_robot_strengths"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Robot's Strengths"/>
+
+            <EditText
+                android:id="@+id/txt_p_robot_srengths"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comment_box_height"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:inputType="textMultiLine"/>
+
+            <TextView
+                android:id="@+id/lbl_p_robot_weaknesses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Robot's Weaknesses"/>
+
+            <EditText
+                android:id="@+id/txt_p_robot_weaknesses"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comment_box_height"
+                android:layout_marginBottom="@dimen/spacer_title"
+                android:inputType="textMultiLine"/>
+
+            <TextView
+                android:id="@+id/lbl_p_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Other Comments"/>
+
+            <EditText
+                android:id="@+id/txt_p_comments"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comment_box_height"
+                android:inputType="textMultiLine"/>
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_p_send"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onClickSend"
+                android:text="Send Form"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -4,4 +4,7 @@
 
     <item android:title="Save data locally..."
           android:id="@+id/scouting_item_save_locally"/>
+
+    <item android:title="Reset Fields"
+          android:id="@+id/scouting_item_reset"/>
 </menu>

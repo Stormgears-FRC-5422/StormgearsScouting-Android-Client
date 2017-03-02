@@ -14,6 +14,7 @@
     <!-- Dialog titles -->
     <string name="send_cached_title">Send Cached Data</string>
 
+    <!-- Arrays -->
     <string-array name="match_types">
         <item>Qualification</item>
         <item>Playoff</item>
@@ -40,6 +41,7 @@
     </string-array>
 
     <string-array name="tele_robot_climb_status">
+        <item>Did not attempt to climb</item>
         <item>Attempted to Climb; Did not Reach Rope</item>
         <item>Grappled onto Rope</item>
         <item>Climbed Rope Half Way</item>
@@ -52,6 +54,15 @@
         <item>Both Gears and Fuel</item>
         <item>Defense</item>
         <item>Sits Still for the Match</item>
+    </string-array>
+
+    <string-array name="drive_train_types">
+        <item>Tank</item>
+        <item>Swerve</item>
+        <item>Slide</item>
+        <item>Mecanum</item>
+        <item>Holonomic</item>
+        <item>West Coast</item>
     </string-array>
 
     <string-array name="protocols">

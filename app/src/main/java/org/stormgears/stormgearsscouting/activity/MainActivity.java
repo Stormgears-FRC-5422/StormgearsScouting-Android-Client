@@ -5,10 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity
 		setContentView(R.layout.activity_main);
 
 		initialize();
-
-		displayWarnings();
 	}
 
 	@Override
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity
 			{
 				// Open a dialog to view cached data
 				SendDataDialog dialog = new SendDataDialog();
-				dialog.show(getFragmentManager(), "this is a tag!");
+				dialog.show(getFragmentManager(), "");
 
 				return true;
 			}
@@ -70,7 +68,8 @@ public class MainActivity extends AppCompatActivity
 				new AlertDialog.Builder(this)
 						.setTitle("Clear Cached Data")
 						.setMessage("Are you sure you want to clear cached data?")
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()
+						{
 							public void onClick(DialogInterface dialog, int which)
 							{
 								// Clear cached data
@@ -113,16 +112,11 @@ public class MainActivity extends AppCompatActivity
 		Constants.TELE_BALL_RETRIEVAL_METHOD = resources.getStringArray(R.array.tele_ball_retrieval_method);
 		Constants.TELE_ROBOT_CLIMB_STATUS = resources.getStringArray(R.array.tele_robot_climb_status);
 		Constants.MATCH_STRATEGIES = resources.getStringArray(R.array.match_strategies);
+		Constants.DRIVETRAIN_TYPES = resources.getStringArray(R.array.drive_train_types);
 
 		// Initialize SharedPreferences for this app; use default SharedPreferences
 		Utils.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		Utils.activity = this;
 		Utils.initializePrefs();
-	}
-
-	private void displayWarnings()
-	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
 	}
 }

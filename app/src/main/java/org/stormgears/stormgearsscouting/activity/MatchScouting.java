@@ -8,7 +8,6 @@ import org.stormgears.stormgearsscouting.data.Data;
 import org.stormgears.stormgearsscouting.util.AppPrefs;
 import org.stormgears.stormgearsscouting.util.Constants;
 
-
 public class MatchScouting extends ScoutingActivity
 {
 	@Override
@@ -25,14 +24,5 @@ public class MatchScouting extends ScoutingActivity
 		requestVitalPermissions();
 
 		Data.scoutType = Constants.MATCH_SCOUT;
-
-		System.out.println("protocol to use: " + AppPrefs.protocolToUse);
-		System.out.println("phone number: " + AppPrefs.phoneNumber);
-		System.out.println("event code: " + AppPrefs.eventCode);
-		System.out.println("password: " + AppPrefs.password);
-		System.out.println("server url: " + AppPrefs.serverUrl);
-		System.out.println("internet: " + AppPrefs.pInternet);
-		System.out.println("send sms: " + AppPrefs.pSmsSend);
-		System.out.println("read sms: " + AppPrefs.pSmsRead);
 	}
 }

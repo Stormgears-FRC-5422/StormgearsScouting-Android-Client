@@ -16,7 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <View
                 android:id="@+id/spacer_1"
@@ -24,10 +25,13 @@
                 android:layout_height="@dimen/spacer_height"/>
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/stormgears_logo"
-                android:id="@+id/imageView"/>
+                android:layout_weight="0.69"
+                android:src="@mipmap/stormgears_logo"
+                android:layout_height="250dp"
+                android:scaleX="0.75"
+                android:scaleY="0.75"/>
 
             <View
                 android:id="@+id/spacer_2"
@@ -47,8 +51,8 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Pit Scouting"
-                android:onClick="onClickPitScouting"/>
+                android:onClick="onClickPitScouting"
+                android:text="Pit Scouting"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
