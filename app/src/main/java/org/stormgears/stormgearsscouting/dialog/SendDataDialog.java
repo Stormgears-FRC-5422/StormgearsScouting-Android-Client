@@ -75,7 +75,7 @@ public class SendDataDialog extends DialogFragment
 			}
 		}
 
-		adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, timeStampList);
+		adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, timeStampList);
 		listCachedData.setAdapter(adapter);
 
 		listCachedData.setOnItemClickListener(new AdapterView.OnItemClickListener()
