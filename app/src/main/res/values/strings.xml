@@ -66,7 +66,7 @@
     </string-array>
 
     <string-array name="protocols">
-        <item>HTTPS</item>
+        <item>HTTP[S]</item>
         <item>SMS</item>
     </string-array>
 </resources>

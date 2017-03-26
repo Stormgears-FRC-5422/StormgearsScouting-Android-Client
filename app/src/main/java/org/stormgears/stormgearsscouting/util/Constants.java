@@ -27,7 +27,7 @@ public class Constants
 	public static final String MSG_PREFIX = "STORMGEARS_SCOUT";
 
 	// HTTPS stuff
-	public static final String HTTPS_PROT = "HTTPS";
+	public static final String HTTPS_PROT = "HTTP[S]";
 	public static final String CORRECT_SERV_RESPONSE = "OK";
 
 	// Settings Stuff

@@ -7,7 +7,7 @@ android {
         applicationId "com.stormgearsfrc.stormgearsscouting"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 20
+        versionCode 22
         versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

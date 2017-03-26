@@ -46,7 +46,6 @@ public class SendDataDialog extends DialogFragment
 
 		final Dialog dialog = new Dialog(getActivity());
 		dialog.setContentView(R.layout.dialog_send_cached);
-		dialog.setTitle(R.string.send_cached_title);
 		dialog.setCancelable(false);
 
 		Button btn_sendCached_done = (Button) dialog.findViewById(R.id.btn_send_cached_done);

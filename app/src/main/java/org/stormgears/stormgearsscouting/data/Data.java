@@ -165,9 +165,8 @@ public class Data
 		Utils.dataFailed = false;
 
 		final byte[] dataBytes = Base64.decode(data, Base64.DEFAULT);
+		// Start a new HTTP[S] POST request
 		if (protocol.equals(Constants.HTTPS_PROT))  // INTERNET permission is already given to app by Android
-		{
-			// Start a new HTTP[S] POST request
 			new Thread(new Runnable()
 			{
 				@Override
@@ -219,10 +218,14 @@ public class Data
 					}
 					catch (Exception e)
 					{
-						Log.e("[Internet Error]", e.toString());
+						Log.e("Internet Error", e.toString());
+						e.printStackTrace();
 
 						Utils.dataSent = false;
 						Utils.dataFailed = true;
+
+						if (!activity.hasWindowFocus())
+							return; // Can't display the dialog if the activity is no longer in focus
 
 						activity.runOnUiThread(new Runnable()
 						{
@@ -266,7 +269,7 @@ public class Data
 					}
 				}
 			}).start();
-		} else if (AppPrefs.protocolToUse.equals(Constants.SMS_PROT))
+		else if (AppPrefs.protocolToUse.equals(Constants.SMS_PROT))
 		{
 			if (AppPrefs.pSmsSend && AppPrefs.pSmsRead)
 			{
